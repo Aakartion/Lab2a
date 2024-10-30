@@ -8,6 +8,7 @@ public class Employee {
     private String lastName;
     private LocalDate employmentDate;
     private double yearlySalary;
+    private PensionPlan pensionPlan;
 
     public Employee(Long employeeId, String firstName, String lastName, LocalDate employmentDate, double yearlySalary) {
         this.employeeId = employeeId;
@@ -15,6 +16,7 @@ public class Employee {
         this.lastName = lastName;
         this.employmentDate = employmentDate;
         this.yearlySalary = yearlySalary;
+        this.pensionPlan = null;
     }
 
     public Long getEmployeeId() {
@@ -55,5 +57,9 @@ public class Employee {
 
     public void setYearlySalary(double yearlySalary) {
         this.yearlySalary = yearlySalary;
+    }
+
+    public void enrollInPensionPlan(PensionPlan pensionPlan){
+        this.pensionPlan = pensionPlan;
     }
 }
