@@ -14,11 +14,11 @@ public class PensionPlan {
         this.monthlyContribution = monthlyContribution;
     }
 
-    public int getPlanReferenceNumber() {
+    public String getPlanReferenceNumber() {
         return planReferenceNumber;
     }
 
-    public void setPlanReferenceNumber(int planReferenceNumber) {
+    public void setPlanReferenceNumber(String planReferenceNumber) {
         this.planReferenceNumber = planReferenceNumber;
     }
 
@@ -36,5 +36,14 @@ public class PensionPlan {
 
     public void setMonthlyContribution(double monthlyContribution) {
         this.monthlyContribution = monthlyContribution;
+    }
+
+    public String toJson() {
+        return String.format(
+                "{\"planReferenceNumber\": \"%s\", \"enrollmentDate\": \"%s\", \"monthlyContribution\": %.2f}",
+                planReferenceNumber,
+                enrollmentDate != null ? enrollmentDate.toString() : "null",
+                monthlyContribution
+        );
     }
 }

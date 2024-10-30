@@ -23,33 +23,20 @@ public class Employee {
         return employeeId;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
+    public PensionPlan getPensionPlan() {
+        return pensionPlan;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public LocalDate getEmploymentDate() {
         return employmentDate;
     }
 
-    public void setEmploymentDate(LocalDate employmentDate) {
-        this.employmentDate = employmentDate;
-    }
 
     public double getYearlySalary() {
         return yearlySalary;
@@ -61,5 +48,21 @@ public class Employee {
 
     public void enrollInPensionPlan(PensionPlan pensionPlan){
         this.pensionPlan = pensionPlan;
+    }
+
+    public boolean isEligibleForPensionPlan(LocalDate referenceDate) {
+        return pensionPlan == null && employmentDate.plusYears(5).isBefore(referenceDate);
+    }
+
+    public String toJson() {
+        return String.format(
+                "{\"employeeId\": %d, \"firstName\": \"%s\", \"lastName\": \"%s\", \"employmentDate\": \"%s\", \"yearlySalary\": %.2f, \"pensionPlan\": %s}",
+                employeeId,
+                firstName,
+                lastName,
+                employmentDate != null ? employmentDate.toString() : "null",
+                yearlySalary,
+                pensionPlan != null ? pensionPlan.toJson() : "null"
+        );
     }
 }
