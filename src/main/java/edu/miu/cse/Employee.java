@@ -10,13 +10,13 @@ public class Employee {
     private double yearlySalary;
     private PensionPlan pensionPlan;
 
-    public Employee(Long employeeId, String firstName, String lastName, LocalDate employmentDate, double yearlySalary) {
+    public Employee(Long employeeId, String firstName, String lastName, LocalDate employmentDate, double yearlySalary, PensionPlan pensionPlan) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.employmentDate = employmentDate;
         this.yearlySalary = yearlySalary;
-        this.pensionPlan = null;
+        this.pensionPlan = pensionPlan;
     }
 
     public Long getEmployeeId() {

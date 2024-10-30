@@ -15,6 +15,8 @@ public class PensionCLI {
     }
 
     public void showMenu() {
+        System.out.println();
+        System.out.println("------------------- Please choose your options from the main Menu as 1,2.. -------------------");
         System.out.println("1. View All Employees in JSON");
         System.out.println("2. View Monthly Upcoming Enrollees in JSON");
         System.out.println("3. Enroll Employee in Pension Plan");
@@ -64,7 +66,7 @@ public class PensionCLI {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Employee ID to Enroll: ");
         long employeeId = scanner.nextLong();
-        scanner.nextLine();  // Consume newline
+        scanner.nextLine();
 
         Employee employee = employeeInfoStorage.getEmployees().stream()
                 .filter(e -> e.getEmployeeId() == employeeId)
